@@ -1,4 +1,4 @@
-//Microsoft Developer Studio generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -27,18 +27,18 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE DISCARDABLE 
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE DISCARDABLE 
+2 TEXTINCLUDE 
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE DISCARDABLE 
+3 TEXTINCLUDE 
 BEGIN
     "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
     "#define _AFX_NO_OLE_RESOURCES\r\n"
@@ -66,7 +66,7 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDR_MAINFRAME           ICON    DISCARDABLE     "res\\WinNUTConfigurationTool.ico"
+IDR_MAINFRAME           ICON                    "res\\WinNUTConfigurationTool.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -74,10 +74,10 @@ IDR_MAINFRAME           ICON    DISCARDABLE     "res\\WinNUTConfigurationTool.ic
 //
 
 IDD_WINNUTCONFIGURATIONTOOL_DIALOG DIALOGEX 0, 0, 353, 212
-STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "WinNUT Configuration Tool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     LTEXT           "WinNut E&xecutable Path:",IDC_STATIC,7,7,96,10
     EDITTEXT        IDC_INSTALLDIR,7,17,181,12,ES_AUTOHSCROLL
@@ -91,60 +91,42 @@ BEGIN
     PUSHBUTTON      "Browse",IDC_LOG_BROWSE,195,70,58,13
     PUSHBUTTON      "&View",IDC_VIEW_LOG,259,70,58,13
     GROUPBOX        "Events to log",IDC_STATIC,7,99,73,81
-    CONTROL         "&Alert",IDC_LOG_ALERT,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,108,30,10
-    CONTROL         "Cri&tical",IDC_LOG_CRITICAL,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,118,37,10
-    CONTROL         "&Error",IDC_LOG_ERROR,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,127,31,10
-    CONTROL         "&Warning",IDC_LOG_WARNING,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,137,43,10
-    CONTROL         "&Notice",IDC_LOG_NOTICE,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,148,37,10
-    CONTROL         "In&fo",IDC_LOG_INFO,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,158,28,10
-    CONTROL         "De&bug",IDC_LOG_DEBUG,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,167,37,10
+    CONTROL         "&Alert",IDC_LOG_ALERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,108,30,10
+    CONTROL         "Cri&tical",IDC_LOG_CRITICAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,118,37,10
+    CONTROL         "&Error",IDC_LOG_ERROR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,127,31,10
+    CONTROL         "&Warning",IDC_LOG_WARNING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,137,43,10
+    CONTROL         "&Notice",IDC_LOG_NOTICE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,148,37,10
+    CONTROL         "In&fo",IDC_LOG_INFO,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,158,28,10
+    CONTROL         "De&bug",IDC_LOG_DEBUG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,167,37,10
     GROUPBOX        "Automatic Startup",IDC_STATIC,86,126,107,79
-    CONTROL         "&Install As Service",IDC_ENABLE_SERVICE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,90,114,86,10
-    GROUPBOX        "Service Startup",IDC_SERVICE_SETTING_STARTUP,109,134,80,
-                    64
+    CONTROL         "&Install As Service",IDC_ENABLE_SERVICE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,114,86,10
+    GROUPBOX        "Service Startup",IDC_SERVICE_SETTING_STARTUP,109,134,80,64
     LTEXT           "(NT and 2000 Only)",IDC_SERVICE_DESC_LABEL,115,143,67,9
     CONTROL         "Automatic &Startup",IDC_SERVICE_SETTING_STARTUP_AUTO,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,113,
-                    153,72,10
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,113,153,72,10
     CONTROL         "&Manual Startup",IDC_SERVICE_SETTING_STARTUP_MANUAL,
                     "Button",BS_AUTORADIOBUTTON | WS_TABSTOP,113,163,69,10
     CONTROL         "Se&rvice Disabled",IDC_SERVICE_SETTING_STARTUP_DISABLED,
                     "Button",BS_AUTORADIOBUTTON | WS_TABSTOP,113,173,69,10
-    CONTROL         "Automat&ic Startup",IDC_WIN98_STARTUP_CHECKBOX,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,90,115,95,10
+    CONTROL         "Automat&ic Startup",IDC_WIN98_STARTUP_CHECKBOX,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,115,95,10
     LTEXT           "Upsd &Port:",IDC_STATIC,197,107,41,10
     EDITTEXT        IDC_UPSD_PORT,245,105,40,12,ES_AUTOHSCROLL
-    CONTROL         "Use &Timed Shutdown",IDC_USE_TIMED_SHUTDOWN,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,197,123,89,10
+    CONTROL         "Use &Timed Shutdown",IDC_USE_TIMED_SHUTDOWN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,197,123,89,10
     LTEXT           "Shutdo&wn delay (in seconds)",IDC_STATIC,195,135,52,18
     EDITTEXT        IDC_UPSD_SHUTDOWN_DELAY,247,138,40,12,ES_AUTOHSCROLL
     LTEXT           "S&hutdown Method:",IDC_STATIC,195,154,83,10
-    COMBOBOX        IDC_SHUTDOWN_TYPE,195,163,98,50,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP,WS_EX_CLIENTEDGE
+    COMBOBOX        IDC_SHUTDOWN_TYPE,195,163,98,50,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP,WS_EX_CLIENTEDGE
     PUSHBUTTON      "&OK",IDOK,295,147,55,18
     PUSHBUTTON      "&Cancel",IDCANCEL,295,165,55,18
-    LTEXT           "NOTE: You must edit the default configuration file to specify the ups name and the password.",
-                    IDC_STATIC,258,7,92,35,NOT WS_GROUP
-    LTEXT           "Read Documentation for important information about shutdown methods!",
-                    IDC_STATIC,195,179,91,26
-    PUSHBUTTON      "Appl&y and Start WinNUT",IDC_APPLY_AND_START,295,107,55,
-                    22,BS_MULTILINE
+    LTEXT           "NOTE: You must edit the default configuration file to specify the ups name and the password.",IDC_STATIC,258,7,92,35,NOT WS_GROUP
+    LTEXT           "Read Documentation for important information about shutdown methods!",IDC_STATIC,195,179,91,26
+    PUSHBUTTON      "Appl&y and Start WinNUT",IDC_APPLY_AND_START,295,107,55,22,BS_MULTILINE
     PUSHBUTTON      "Stop WinN&UT",IDC_STOP,295,129,55,18
-    EDITTEXT        IDC_UPSMON_STATUS,220,87,130,12,ES_AUTOHSCROLL | 
-                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_UPSMON_STATUS,220,87,130,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     LTEXT           "Status:",IDC_STATIC,196,88,24,9
 END
 
 
-#ifndef _MAC
 /////////////////////////////////////////////////////////////////////////////
 //
 // Version
@@ -167,15 +149,13 @@ BEGIN
     BEGIN
         BLOCK "040904B0"
         BEGIN
-            VALUE "CompanyName", "\0"
-            VALUE "FileDescription", "WinNUTConfigurationTool MFC Application\0"
-            VALUE "FileVersion", "1, 0, 0, 1\0"
-            VALUE "InternalName", "WinNUTConfigurationTool\0"
-            VALUE "LegalCopyright", "Copyright (C) 2000\0"
-            VALUE "LegalTrademarks", "\0"
-            VALUE "OriginalFilename", "WinNUTConfigurationTool.EXE\0"
-            VALUE "ProductName", "WinNUTConfigurationTool Application\0"
-            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "FileDescription", "WinNUTConfigurationTool MFC Application"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "WinNUTConfigurationTool"
+            VALUE "LegalCopyright", "Copyright (C) 2000"
+            VALUE "OriginalFilename", "WinNUTConfigurationTool.EXE"
+            VALUE "ProductName", "WinNUTConfigurationTool Application"
+            VALUE "ProductVersion", "1, 0, 0, 1"
         END
     END
     BLOCK "VarFileInfo"
@@ -184,8 +164,6 @@ BEGIN
     END
 END
 
-#endif    // !_MAC
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -193,7 +171,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO 
 BEGIN
     IDD_WINNUTCONFIGURATIONTOOL_DIALOG, DIALOG
     BEGIN

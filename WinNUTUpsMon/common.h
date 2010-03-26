@@ -32,6 +32,7 @@
 #include <math.h>
 #include <assert.h>
 #include <tchar.h>
+#include <powrProf.h>
 #include "syslog.h"
 
 #include "config.h"

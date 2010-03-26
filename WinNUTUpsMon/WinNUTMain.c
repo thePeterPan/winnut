@@ -317,7 +317,7 @@
 		upscli_getvarThreadArgs *args = (upscli_getvarThreadArgs*) lpvArgs;
 		syslog(LOG_DEBUG,"upscli_getvarThread - calling upscli_getvar");
 		args->retval = get_var(args->ups, args->varname, args->buf, args->buflen);
-		args->errno = errno;
+		args->xerrno = errno;
 		syslog(LOG_DEBUG,"upscli_getvarThread - signaling event");
 		SetEvent(args->hTimeoutEvent);
 		ExitThread( args->retval);
@@ -751,7 +751,15 @@
 		case OSLEVEL_WINXP:
 		case OSLEVEL_WIN2K3:
 		case OSLEVEL_WINVISTA:
-			ret = InitiateSystemShutdown(NULL,"UPS on battery and battary low.  Shutting down NOW!",waitTime,forceShutdown,FALSE);
+
+			if(s_curConfig.shutdownType==SHUTDOWN_TYPE_HIBERNATE)
+			{	
+				ret = SetSuspendState(TRUE, FALSE, FALSE);
+			}
+			else
+			{			
+				ret = InitiateSystemShutdown(NULL,"UPS on battery and battary low.  Shutting down NOW!",waitTime,forceShutdown,FALSE);
+			}
 			_snprintf(msg,sizeof(msg),"Shutdown in %d seconds.  Sys shutdown command returns %d: %u\n",
 				waitTime,
 				ret,
@@ -807,7 +815,7 @@
 
 		retVal = StartServiceCtrlDispatcher(serviceStartTable);
     
-		if (retVal = FALSE)
+		if (retVal == FALSE)
 		{
 			syslog(LOG_CRIT,"RunInServiceMode - StartServiceCtrlDispatcher failed - startup aborted");
 			createNTEventLogEntry(MSG_GENERAL_ERROR, "RunInServiceMode - StartServiceCtrlDispatcher failed - startup aborted");

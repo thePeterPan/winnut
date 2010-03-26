@@ -78,7 +78,7 @@
 #define SHUTDOWN_TYPE_NORMAL		(0x00000001)
 #define SHUTDOWN_TYPE_FORCE			(0x00000004)  /* value compatible with EWX_FORCE used in previous versions */
 #define SHUTDOWN_TYPE_FORCEIFHUNG	(0x00000010)  /* value compatible with EWX_FORCEIFHUNG used in previous versions */
-
+#define SHUTDOWN_TYPE_HIBERNATE     (0x00000100)  /* new value for hibernating the system */
 /* constants for getWinNUTStatus */
 #define RUNNING_SERVICE_MODE (1)
 #define RUNNING_APP_MODE (2)

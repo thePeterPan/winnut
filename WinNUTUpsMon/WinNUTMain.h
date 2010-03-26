@@ -34,7 +34,7 @@ typedef struct upscli_getvarThreadArgsStruct
 	int buflen;
 	HANDLE hTimeoutEvent;
 	int retval;
-	int errno;
+	int xerrno;
 	int upserror;
 } upscli_getvarThreadArgs;
 

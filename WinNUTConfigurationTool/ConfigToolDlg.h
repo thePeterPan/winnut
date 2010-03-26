@@ -77,6 +77,7 @@ protected:
 	const char* m_STNormal;
 	const char* m_STForce;
 	const char* m_STForceIfHung;
+    const char* m_STHibernate;
 
 	void doServiceDepCheck();
 	void doShutdownDelayDepCheck();
