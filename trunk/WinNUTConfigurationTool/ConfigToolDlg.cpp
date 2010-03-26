@@ -66,6 +66,7 @@ CConfigToolDlg::CConfigToolDlg(CWnd* pParent /*=NULL*/,
 	m_STNormal = "Normal";
 	m_STForce = "Forced";
 	m_STForceIfHung = "Force If Hung";
+	m_STHibernate = "Hibernate";
 }
 
 void CConfigToolDlg::DoDataExchange(CDataExchange* pDX)
@@ -142,6 +143,8 @@ BOOL CConfigToolDlg::OnInitDialog()
 	{
 		m_ShutdownType.InsertString(-1,m_STForceIfHung);
 		m_ShutdownType.SetItemData(2,SHUTDOWN_TYPE_FORCEIFHUNG);
+		m_ShutdownType.InsertString(-1, m_STHibernate);
+		m_ShutdownType.SetItemData(3, SHUTDOWN_TYPE_HIBERNATE);
 	}
 	
 	LoadDefaultsFromConfObject();
@@ -436,6 +439,10 @@ void CConfigToolDlg::LoadDefaultsFromConfObject()
 		else if(m_conf->shutdownType == SHUTDOWN_TYPE_FORCEIFHUNG)
 		{
 			m_ShutdownType.SetCurSel(2);
+		}
+		else if(m_conf->shutdownType == SHUTDOWN_TYPE_HIBERNATE)
+		{
+			m_ShutdownType.SetCurSel(3);
 		}
 		else
 		{
