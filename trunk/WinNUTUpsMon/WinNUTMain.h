@@ -68,6 +68,7 @@ int handleEvents();
 void doWinShutdown(int delayTime);
 DWORD WINAPI upscli_getvarThread(LPVOID lpvArgs);
 
+int isShutdownTypeHibernate();
 
 
 
