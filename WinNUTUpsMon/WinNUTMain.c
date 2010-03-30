@@ -688,6 +688,14 @@
 		return TRUE;
 	}
 
+	int isShutdownTypeHibernate()
+	{
+		if(s_curConfig.shutdownType==SHUTDOWN_TYPE_HIBERNATE)
+		{
+			return TRUE;
+		}
+		return FALSE;
+	}
 	/**
 	 * This is the code that shuts down a winNT/2000 box
 	 * The waitTime parameter specifies the amount of delay before shutting down 
@@ -754,7 +762,7 @@
 
 			if(s_curConfig.shutdownType==SHUTDOWN_TYPE_HIBERNATE)
 			{	
-				MessageBox(NULL,"Initiating System Hibernation.","HIBERNATION IN PROGRESS",MB_OK);
+				//MessageBox(NULL,"Initiating System Hibernation.","HIBERNATION IN PROGRESS",MB_OK);
 				ret = SetSuspendState(TRUE, FALSE, FALSE);
 			}
 			else

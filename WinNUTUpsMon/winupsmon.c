@@ -586,7 +586,8 @@ static void forceshutdown(void)
 	if (!isamaster)
 	{
 		doshutdown();
-		s_poweringDownFlag = 1; /*WinNUT add powerdown flag*/
+		if(!isShutdownTypeHibernate())
+			s_poweringDownFlag = 1; /*WinNUT add powerdown flag*/
 		return;
 	}
 
