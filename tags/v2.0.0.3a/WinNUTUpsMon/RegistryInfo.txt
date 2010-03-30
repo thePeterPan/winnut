@@ -1,0 +1,33 @@
+Here are the places WinNUT Creates registry entries:
+
+\\HKEY_LOCAL_MACHINE\SOFTWARE\WinNUT
+It has a subkey "upsmon"
+This key has the following values
+REG_SZ		ConfigurationFilePath	Location of the configuration file (typically upsmon.conf)
+REG_SZ		ExeFilePath		Location of the actual WinNUT Executable (WinNutUpsMon.exe)
+REG_SZ		LogFilePath		Location of the log file
+REG_DWORD	LogMask			bitmask that specifies what levels get logged
+REG_DWORD	Port			Default port on which upsd should be contacted
+REG_DWORD	ShutdownType		The extra part of the mask (besides EWX_SHUTDOWN to use - like EWX_FORCE or EWX_FORCEIFHUNG)
+
+For Windows 9x:
+\\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices\WinNutUPSMon
+This key has one value that specifies the ExeFilePath
+This is only set if automatic startup is selected under win9x
+
+For Windows NT:
+\\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinNutUPSMon
+This is the definition of the service (if you have install as service selected)
+Most of the keys in here are created automatically by the api that creates a service entry.
+A couple of them however are extra - including
+REG_SZ		DESCRIPTION		This is the text that describes the service - this is used under the 2000 Service panel - not sure if this is used under NT
+
+\\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\WinNutUPSMon
+Also for any NT installation, the following values are put under this key so that we can log
+events under the NT Event Log
+REG_SZ 		EventMessageFile		This key specifies the location of the WinNutUpsMon executable
+REG_SZ 		CategoryMessageFile		This key specifies the location of the WinNutUpsMon executable
+REG_SZ 		ParameterMessageFile		This key specifies the location of the WinNutUpsMon executable
+REG_DWORD	TypesSupported			This is always set to 0x7
+
+
