@@ -153,7 +153,7 @@
 				ObjectFile=".\Release/"
 				ProgramDataBaseFileName=".\Release/"
 				BrowseInformation="1"
-				WarningLevel="3"
+				WarningLevel="2"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -173,6 +173,7 @@
 				OutputFile=".\Release/WinNUTUpsMon.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
+				UACExecutionLevel="2"
 				ProgramDatabaseFile=".\Release/WinNUTUpsMon.pdb"
 				SubSystem="2"
 				RandomizedBaseAddress="1"

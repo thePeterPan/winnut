@@ -152,7 +152,7 @@
 				AssemblerListingLocation=".\Release/"
 				ObjectFile=".\Release/"
 				ProgramDataBaseFileName=".\Release/"
-				WarningLevel="3"
+				WarningLevel="2"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -171,6 +171,7 @@
 				OutputFile=".\Release/WinNUTConfigurationTool.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
+				UACExecutionLevel="2"
 				ProgramDatabaseFile=".\Release/WinNUTConfigurationTool.pdb"
 				SubSystem="2"
 				RandomizedBaseAddress="1"

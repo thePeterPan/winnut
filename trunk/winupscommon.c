@@ -390,6 +390,12 @@ int  getOSLevel()
 				/* We've got Windows Vista */
 				oslevel = OSLEVEL_WINVISTA;
 			}
+			else if(   (verInfo.dwMajorVersion == 6)
+					&& (verInfo.dwMinorVersion == 1))
+			{
+				/* We've got Windows 7 */
+				oslevel = OSLEVEL_WIN7;
+			}
 			else
 			{
 				/* Must be some crazy new microsoft product =) default to NT so we treat it as and OS with services */
@@ -464,6 +470,7 @@ char *getNameForOSLevel(int oslevel)
 	static char winXP[]="Windows XP";
 	static char win2K3[]="Windows 2003 Server";
 	static char winVista[]="Windows Vista";
+	static char win7[]="Windows 7";
 	static char unknown[]="UNKNOWN OS VERSION";
 	
 	switch(oslevel)
@@ -484,6 +491,8 @@ char *getNameForOSLevel(int oslevel)
 		return win2K3;
 	case OSLEVEL_WINVISTA:
 		return winVista;
+	case OSLEVEL_WIN7:
+		return win7;
 	default:
 		return unknown;
 	}
