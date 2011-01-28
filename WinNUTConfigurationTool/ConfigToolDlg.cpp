@@ -139,7 +139,8 @@ BOOL CConfigToolDlg::OnInitDialog()
 	if(   (m_conf->oslevel == OSLEVEL_WIN2K)
 	   || (m_conf->oslevel == OSLEVEL_WINXP)
 	   || (m_conf->oslevel == OSLEVEL_WIN2K3)
-	   || (m_conf->oslevel == OSLEVEL_WINVISTA))
+	   || (m_conf->oslevel == OSLEVEL_WINVISTA)
+	   || (m_conf->oslevel == OSLEVEL_WIN7))
 	{
 		m_ShutdownType.InsertString(-1,m_STForceIfHung);
 		m_ShutdownType.SetItemData(2,SHUTDOWN_TYPE_FORCEIFHUNG);

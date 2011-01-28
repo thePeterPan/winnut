@@ -1,4 +1,13 @@
 ========================================================================================================
+2.0.0.4
+->Added Windows 7 and UAC support.
+->Fixed inconsistency in handling of the NOTIFYCMD variable. Provides more flexibility but all paths
+  with spaces must now be enclosed in additional quotes. Sample config updated to reflect this change.
+->Removed extra notification on shutdown that would be shown no matter what NOTIFYFLAG preferences were
+  set to.
+->Cleanup of minor errors and formatting of notification text.
+
+========================================================================================================
 2.0.0.3
 ->Added Hibernate Option, switched to Visual Studio 2008 project.
 

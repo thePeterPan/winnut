@@ -262,6 +262,7 @@
 		case OSLEVEL_WINXP:
 		case OSLEVEL_WIN2K3:
 		case OSLEVEL_WINVISTA:
+		case OSLEVEL_WIN7:
 				/* WinNT/2k */
 			doWinNTShutdown(delayTime);
 			break;
@@ -708,8 +709,8 @@
 		BOOL forceShutdown = FALSE;
 		BOOL ret = FALSE;
  
-		createNTEventLogEntry(MSG_GENERAL_WARNING,"UPSMON: UPS on battery and battary low.  Issuing shutdown NOW.");
-		syslog(LOG_CRIT,"UPSMON: UPS on battery and battary low.  Issuing shutdown NOW.");
+		createNTEventLogEntry(MSG_GENERAL_WARNING,"UPS on battery and battery low. Shutting down NOW!");
+		syslog(LOG_CRIT,"UPSMON: UPS on battery and battery low. Shutting down NOW!");
 
 		/*
 			reinterpret the force flags - note that since we don't use the exitwindowsex function, we don't get
@@ -759,6 +760,7 @@
 		case OSLEVEL_WINXP:
 		case OSLEVEL_WIN2K3:
 		case OSLEVEL_WINVISTA:
+		case OSLEVEL_WIN7:
 
 			if(s_curConfig.shutdownType==SHUTDOWN_TYPE_HIBERNATE)
 			{	
@@ -767,7 +769,7 @@
 			}
 			else
 			{			
-				ret = InitiateSystemShutdown(NULL,"UPS on battery and battary low.  Shutting down NOW!",waitTime,forceShutdown,FALSE);
+				ret = InitiateSystemShutdown(NULL,"UPS on battery and battery low. Shutting down NOW!",waitTime,forceShutdown,FALSE);
 			}
 			_snprintf(msg,sizeof(msg),"Shutdown in %d seconds.  Sys shutdown command returns %d: %u\n",
 				waitTime,
@@ -796,6 +798,7 @@
 		case OSLEVEL_WINXP:
 		case OSLEVEL_WIN2K3:
 		case OSLEVEL_WINVISTA:
+		case OSLEVEL_WIN7:
 			_snprintf(msg,sizeof(msg),"Shutdown in %d seconds.  Sys shutdown command returns %d: %u\n",
 				waitTime,
 				InitiateSystemShutdownEx(NULL,"UPS on battery and battary low.  Shutting down NOW!",waitTime,TRUE,FALSE,0),

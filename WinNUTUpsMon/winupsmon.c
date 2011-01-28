@@ -117,7 +117,7 @@ static void wall(char *text)
 	{
 		ZeroMemory(&startInfo,sizeof(startInfo));
 		startInfo.cb=sizeof(startInfo);
-		snprintf(exec, sizeof(exec), "\"%s\" \"%s\"", notifycmd, text);
+		snprintf(exec, sizeof(exec), "%s \"%s\"", notifycmd, text);
 		CreateProcess(NULL,exec,NULL,NULL,FALSE,0,NULL,NULL,&startInfo,&processInfo);
 	}
 }
@@ -409,7 +409,6 @@ static void set_pdflag(void)
 static void doshutdown(void)
 {
 	syslog (LOG_CRIT, "Executing automatic power-fail shutdown");
-	wall ("Executing automatic power-fail shutdown\n");
 
 	do_notify (NULL, NOTIFY_SHUTDOWN);
 
@@ -621,7 +620,7 @@ static int is_ups_critical(utype *ups)
 	    && (flag_isset(ups->status, NUT_ST_ONBATT))
 	    && (now - ups->lastonlinepower > s_curConfig.shutdownAfterSeconds))
 	 {
-        upslogx(LOG_WARNING, "Ups [%s] on batt for more than %d seconds.  Shutting down system",
+        upslogx(LOG_WARNING, "UPS [%s] on battery for more than %d seconds. Shutting down system",
 				  ups->sys, s_curConfig.shutdownAfterSeconds);
         return 1;
 	 }

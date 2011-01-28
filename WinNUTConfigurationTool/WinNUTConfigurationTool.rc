@@ -133,8 +133,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 2,0,0,3
- PRODUCTVERSION 2,0,0,3
+ FILEVERSION 2,0,0,4
+ PRODUCTVERSION 2,0,0,4
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -150,12 +150,12 @@ BEGIN
         BLOCK "040904b0"
         BEGIN
             VALUE "FileDescription", "WinNUTConfigurationTool MFC Application"
-            VALUE "FileVersion", "2, 0, 0, 3"
+            VALUE "FileVersion", "2, 0, 0, 4"
             VALUE "InternalName", "WinNUTConfigurationTool"
             VALUE "LegalCopyright", "Copyright (C) 2000"
             VALUE "OriginalFilename", "WinNUTConfigurationTool.EXE"
             VALUE "ProductName", "WinNUTConfigurationTool Application"
-            VALUE "ProductVersion", "2, 0, 0, 3"
+            VALUE "ProductVersion", "2, 0, 0, 4"
         END
     END
     BLOCK "VarFileInfo"
