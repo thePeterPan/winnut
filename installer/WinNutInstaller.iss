@@ -2,7 +2,7 @@
 EnableISX=false
 
 [Files]
-Source: installFiles\WinNUTUpsMon.exe; DestDir: {app}; MinVersion: 4.00.950,4.00.1381
+Source: installFiles\WinNUTUpsMon.exe; DestDir: {app}; MinVersion: 4.00.950,4.00.1381; Flags: confirmoverwrite
 Source: installFiles\AlertPopup.exe; DestDir: {app}
 Source: installFiles\ChangeList.txt; DestDir: {app}
 Source: installFiles\COPYING; DestDir: {app}
@@ -10,7 +10,7 @@ Source: installFiles\KnownBugs.txt; DestDir: {app}
 Source: installFiles\QuickStart.txt; DestDir: {app}
 Source: installFiles\Readme.txt; DestDir: {app}
 Source: installFiles\upsmon.conf; DestDir: {app}; Flags: onlyifdoesntexist uninsneveruninstall
-Source: installFiles\WinNUTConfigurationTool.exe; DestDir: {app}; MinVersion: 4.00.950,4.00.1381
+Source: installFiles\WinNUTConfigurationTool.exe; DestDir: {app}; MinVersion: 4.00.950,4.00.1381; Flags: confirmoverwrite
 Source: installFiles\upsmon.conf; DestDir: {app}; DestName: upsmon-InstallerDefault.conf
 
 [INI]
@@ -47,7 +47,7 @@ SourceDir=C:\myfiles\projects\winnut\trunk\installer
 Compression=zip/9
 AppCopyright=Copyright © 1999-2006 Andrew Delpha
 AppName=WinNUT
-AppVerName=WinNUT 2.0.0.3
+AppVerName=WinNUT 2.0.0.4
 InfoAfterFile=C:\myfiles\projects\winnut\trunk\installer\installFiles\QuickStart.txt
 LicenseFile=C:\myfiles\projects\winnut\trunk\installer\installFiles\COPYING
 PrivilegesRequired=admin
@@ -58,7 +58,7 @@ AppPublisher=Andrew Delpha
 AppPublisherURL=http://csociety.ecn.purdue.edu/~delpha/winnut/
 AppSupportURL=http://csociety.ecn.purdue.edu/~delpha/winnut/
 AppUpdatesURL=http://csociety.ecn.purdue.edu/~delpha/winnut/
-AppVersion=WinNUT 2.0.0.3
+AppVersion=WinNUT 2.0.0.4
 AppID=WinNUT
 UninstallDisplayName=WinNUT
 OutputBaseFilename=WinNUT-Installer
