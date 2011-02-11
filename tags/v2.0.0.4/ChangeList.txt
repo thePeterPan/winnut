@@ -1,0 +1,117 @@
+========================================================================================================
+2.0.0.4
+->Added Windows 7 and UAC support.
+->Fixed inconsistency in handling of the NOTIFYCMD variable. Provides more flexibility but all paths
+  with spaces must now be enclosed in additional quotes. Sample config updated to reflect this change.
+->Removed extra notification on shutdown that would be shown no matter what NOTIFYFLAG preferences were
+  set to.
+->Cleanup of minor errors and formatting of notification text.
+
+========================================================================================================
+2.0.0.3
+->Added Hibernate Option, switched to Visual Studio 2008 project.
+
+========================================================================================================
+2.0.0b
+->Added recognition of Windows 2003 Server and Windows Vista
+
+=========================================================================================================
+2.0.0a
+->Ported the current version of the NUT upsmon code over.  This added the following key features:
+	+Support for the new network protocol
+
+=========================================================================================================
+1.2.1a
+->Ported the current version of the NUT upsmon code over.  This added the following key features:
+	+Support for login name
+	+New config file parser
+	+New implementation of the network communication protocol
+	+Some timing improvements 
+->Setup a proper windows installer for WinNUT
+->Updated documentation to reference installations via installer
+
+=========================================================================================================
+0.45.2c
+->Really fixed bug where IP addresses where not properly being resolved in ups system declarations due
+   to an incompatiblity of the windows networking API.  (Previous fix only worked if IP could be resolved
+   thru a reverse DNS lookup)
+0.45.2b
+-> Fixed bug where IP addresses where not properly being resolved in ups system declarations due
+   to an incompatiblity of the windows networking API.
+-> Ported over an important new feature in the NUT upsmon.  Upon UPS mon seeing that the battery
+   is critical, it waits up to HOSTSYNC (as defined in the upsmon.conf) for the master upsmon to
+   send out a FSD (Force Shut Down) command, which prevents the race condition where power is 
+   restored soon after the UPS goes critical and the master doesn't shutdown.  If it doesn't see 
+   the FSD after HOSTSYNC seconds it assumes the master is dead and shutdown anyway.
+-> Added new feature that allows you to specify that WinNUT should shutdown the windows machine
+   after x seconds of being on battery power.  If the ups battery becomes critical/recieves FSD 
+   before this timer expires, WinNUT goes ahead and shuts down the system immediately.
+-> Added some simple validation to WinNUTConfiguration tool for port, shutdown seconds, and the
+   WinNUT Executable path.
+
+=========================================================================================================
+0.45.2a
+-> Ported the current upsmon code base to WinNUT.  This took care of lots of config file loading 
+   issues, especially relating to extra spaces in the config file.
+-> Fixed issue with NT 4 not working in service mode.  (caused 
+   Error 2186: The service is not responding to the control function) which was caused because
+   I was using win2k API extentions
+-> Fixed problem where if not enough power was configured in the config file, WinNUT would initiate
+   a shutdown.  Now WinNutUPSMon will show an error message box and exit.
+-> WinNUT now shows a proper error message if the ups configured in the conf file doesn't exist.
+
+=========================================================================================================
+0.44.1c
+-> added ability to change shutdown types (Forced, Normal) in config tool and monitor daemon
+-> Added daemon stop and start functionality to the config tool
+-> Added current daemon status to the config tool
+-> Registering daemon as win9x "service" process so it doesn't get killed when user logs out 
+   (need this now because we register as a windows application, and would now be shutdown otherwise)
+-> Config tool now use the Service manager API to register as a NT service, so reboots are no longer 
+   required after installation to use the service.
+-> Daemon is now registered with the event log service under NT/2000 so the event log messages show
+   properly.
+-> Created winupscommon.c/h to contain all code / constants common to the config tool and the 
+   daemon.  This includes registry load and store functions / constants, configuration struct,
+   as well as daemon start / stop / and current status functions.
+-> Completely restructured the daemon code.
+   Almost all code for handling windows events, services, etc is now in WinNUTMain.c.  Removed the
+   Microsoft sample code that probably can't be release under GPL with my own completely new
+   implementation - which should conform better to the services API.
+   The application mode daemon now registers as a windows application so it has a proper message 
+   loop (before this was only created when we had to display the win9x shutdown).  This allows 
+   the daemon to handle windows 9x shutdown so it doesn't leave open connections on the upsd side.
+   The restructuring along with some of the other changes should make it easier to port over newer
+   versions of the nut code.
+-> The previous syslog function was a hack, and only handled event code and 2 string parameters.
+   It has been replaced with a new system that uses "..." arguement so it works like printf.  Also
+   added Mutex based locking to prevent race conditions during setup, writing, and closing of the
+   log file.
+-> I finally found that function I'd been looking for in the Win32API, so now AlertPopup uses the
+   MessageBox function to popup the message.  This is better than the old popup, as it can popup
+   on the NT login screen, it wraps text, looks nicer, it's less coding for me...
+-> Added -c stop command to stop any running WinNUTUpsMon daemons
+-> Added -c start command to start the winnut daemon (service or application mode)
+-> Added Application mutex that prevents multiple copies of the daemon to monitor simultanously
+
+=========================================================================================================
+0.44.1b
+(created from bugs fixed list)
+-> Added notification for loss of connection with upsd
+-> Documented the configurable shutdown delay
+-> Fixed Network error codes not being properly displayed
+-> Errors from initial connections were not documented
+-> Incorrect shutdown parameters caused ME to suspend instead of shutdown
+-> Improved documentation in the shipping upsmon.conf
+-> Fixed initialization bug in config tool that caused first installations to get garbage for 
+   initial config parameters
+-> Fixed problem where NT Service mode wasn't prperly closing connections to upsd on system shutdown
+-> Fixed problem where NT Service would disconnect from upsd before the system shutdown actually 
+   started which could lead to the power being cut before shutdown finishes
+-> Added uninstall documentation to readme
+-> Changed logging channels for errors to be more reasonable
+-> Cleaned up spacing of log files and added string descriptions to for the log channels
+
+=========================================================================================================
+0.44.1a 
+-> Initial release
