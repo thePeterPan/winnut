@@ -47,7 +47,7 @@ SourceDir=C:\myfiles\projects\winnut\trunk\installer
 Compression=zip/9
 AppCopyright=Copyright © 1999-2011 Andrew Delpha
 AppName=WinNUT
-AppVerName=WinNUT 2.0.0.4
+AppVerName=WinNUT 2.0.0.4a
 InfoAfterFile=C:\myfiles\projects\winnut\trunk\installer\installFiles\QuickStart.txt
 LicenseFile=C:\myfiles\projects\winnut\trunk\installer\installFiles\COPYING
 PrivilegesRequired=admin
@@ -58,7 +58,7 @@ AppPublisher=Andrew Delpha
 AppPublisherURL=http://code.google.com/p/winnut/
 AppSupportURL=http://code.google.com/p/winnut/
 AppUpdatesURL=http://code.google.com/p/winnut/
-AppVersion=WinNUT 2.0.0.4
+AppVersion=WinNUT 2.0.0.4a
 AppID=WinNUT
 UninstallDisplayName=WinNUT
 OutputBaseFilename=WinNUT-Installer
@@ -67,13 +67,15 @@ AlwaysShowDirOnReadyPage=true
 AlwaysShowGroupOnReadyPage=true
 ShowComponentSizes=true
 FlatComponentsList=true
+VersionInfoVersion=2.0.0.4
+VersionInfoProductVersion=2.0.0.5
 
 
 [UninstallRun]
 Filename: {app}\WinNUTConfigurationTool.exe; Parameters: /uninstall; WorkingDir: {app}
 
 [Run]
-Filename: {app}\WinNUTConfigurationTool.exe; WorkingDir: {app}; Flags: postinstall
+Filename: {app}\WinNUTConfigurationTool.exe; WorkingDir: {app}; Flags: postinstall runascurrentuser
 
 [Messages]
 WelcomeLabel2=This will install [name/ver] on your computer.%n%nYou MUST stop any currently running instances of WinNUT for the install to work properly.%n%n[name] comes with ABSOLUTELY NO WARRANTY; See the license on the next page or the COPYING file in the installation directory for full details.%n
