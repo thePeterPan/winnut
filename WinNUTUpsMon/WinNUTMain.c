@@ -263,6 +263,7 @@
 		case OSLEVEL_WIN2K3:
 		case OSLEVEL_WINVISTA:
 		case OSLEVEL_WIN7:
+		case OSLEVEL_WIN10:
 				/* WinNT/2k */
 			doWinNTShutdown(delayTime);
 			break;
@@ -761,6 +762,7 @@
 		case OSLEVEL_WIN2K3:
 		case OSLEVEL_WINVISTA:
 		case OSLEVEL_WIN7:
+		case OSLEVEL_WIN10:
 
 			if(s_curConfig.shutdownType==SHUTDOWN_TYPE_HIBERNATE)
 			{	

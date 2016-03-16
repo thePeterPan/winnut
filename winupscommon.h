@@ -37,6 +37,7 @@
 #define OSLEVEL_WIN2K3	(67)	/* Windows 2003 Server */	
 #define OSLEVEL_WINVISTA (68)	/* Windows Vista */	
 #define OSLEVEL_WIN7	(69)	/* Windows 7 */	
+#define OSLEVEL_WIN10	(72)	/* Windows 10 */
 
 
 /* Registry key constants */

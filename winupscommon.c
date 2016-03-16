@@ -396,6 +396,12 @@ int  getOSLevel()
 				/* We've got Windows 7 */
 				oslevel = OSLEVEL_WIN7;
 			}
+			else if ((verInfo.dwMajorVersion == 6)
+				&& (verInfo.dwMinorVersion == 2))
+			{
+				/* We've got Windows 10 */
+				oslevel = OSLEVEL_WIN10;
+			}
 			else
 			{
 				/* Must be some crazy new microsoft product =) default to NT so we treat it as and OS with services */
@@ -471,6 +477,7 @@ char *getNameForOSLevel(int oslevel)
 	static char win2K3[]="Windows 2003 Server";
 	static char winVista[]="Windows Vista";
 	static char win7[]="Windows 7";
+	static char win10[]="Windows 10";
 	static char unknown[]="UNKNOWN OS VERSION";
 	
 	switch(oslevel)
@@ -493,6 +500,8 @@ char *getNameForOSLevel(int oslevel)
 		return winVista;
 	case OSLEVEL_WIN7:
 		return win7;
+	case OSLEVEL_WIN10:
+		return win10;
 	default:
 		return unknown;
 	}
